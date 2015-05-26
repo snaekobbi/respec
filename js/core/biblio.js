@@ -3,6 +3,7 @@
 // Handles bibliographic references
 // Configuration:
 //  - localBiblio: override or supplement the official biblio with your own.
+//  - specrefUrl: override "https://specref.jit.su" with your own URL.
 
 define(
     [],
@@ -148,7 +149,7 @@ define(
                                 .concat(refs.informativeReferences)
                                 .concat(localAliases);
                 if (refs.length) {
-                    var url = "https://specref.jit.su/bibrefs?refs=" + refs.join(",");
+                    var url = ( conf.specrefUrl || "https://specref.jit.su" ) + "/bibrefs?refs=" + refs.join(",");
                     $.ajax({
                         dataType:   "json"
                     ,   url:        url
